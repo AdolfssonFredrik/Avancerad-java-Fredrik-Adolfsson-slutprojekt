@@ -1,20 +1,23 @@
-package com.example.ToDoApp.Model;
+package org.example.avanceradjavafredrikadolfssonslutprojekt.models;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ToDoTask {
-
-    private long id;
-
+    @JsonProperty
+    private int id;
+    @JsonProperty
     private String name;
+    @JsonProperty
     private String description;
 
+    public ToDoTask(){}
 
-    public ToDoTask(String name, String description) {
+    public ToDoTask(String name, String description){
         this.name = name;
         this.description = description;
     }
 
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 

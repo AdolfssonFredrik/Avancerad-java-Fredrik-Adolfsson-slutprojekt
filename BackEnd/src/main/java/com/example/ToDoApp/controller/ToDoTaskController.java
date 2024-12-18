@@ -1,10 +1,10 @@
 package com.example.ToDoApp.controller;
 
 import com.example.ToDoApp.Model.ToDoTask;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +23,19 @@ public class ToDoTaskController implements ToDoTaskControllerInterface {
 
 
     @Override
+    @GetMapping
     public List<ToDoTask> getAllTasks() {
         return tasks;
     }
 
     @Override
-    public ResponseEntity<ToDoTask> addNewTask(ToDoTask toDoTask) {
-        if(toDoTask != null && toDoTask.getId() > 0){
+    @PostMapping
+    public ResponseEntity<ToDoTask> addNewTask(ObjectNode objectNode) {
+        if(objectNode != null){
+            ToDoTask toDoTask = new ToDoTask(objectNode.get("name").asText(), objectNode.get("description").asText());
+            toDoTask.setId(tasks.size() + 1);
             tasks.add(toDoTask);
+
             return ResponseEntity.status(HttpStatus.CREATED).body(toDoTask);
         }
         else{
@@ -39,6 +44,7 @@ public class ToDoTaskController implements ToDoTaskControllerInterface {
     }
 
     @Override
+    @PutMapping("/{id}")
     public ResponseEntity<ToDoTask> updateTask(int id, ToDoTask toDoTask) {
         for(ToDoTask task : tasks){
             if(task.getId() == id){
@@ -51,6 +57,7 @@ public class ToDoTaskController implements ToDoTaskControllerInterface {
     }
 
     @Override
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteTask(int id) {
         boolean removed = false;
         for(int i = 0; i < tasks.size(); i++){
@@ -60,10 +67,10 @@ public class ToDoTaskController implements ToDoTaskControllerInterface {
             }
         }
         if(removed){
-            return ResponseEntity.ok("Book with ID: " + id + " was deleted.");
+            return ResponseEntity.ok("Task with ID: " + id + " was deleted.");
         }
         else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Book with ID: " + id + " Not Found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Task with ID: " + id + " Not Found");
         }
     }
 }
