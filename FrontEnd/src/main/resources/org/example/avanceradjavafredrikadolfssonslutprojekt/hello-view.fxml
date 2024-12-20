@@ -15,7 +15,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
-                        <Button layoutX="509.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#updateButtonClicked" prefHeight="38.0" prefWidth="77.0" text="Update" />
+                        <Button layoutX="509.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#updateButtonPressed" prefHeight="38.0" prefWidth="77.0" text="Update" />
                   <ListView fx:id="listView_TaskName" layoutX="8.0" layoutY="44.0" prefHeight="232.0" prefWidth="200.0" />
                   <ListView fx:id="listView_TaskDescription" layoutX="214.0" layoutY="43.0" prefHeight="233.0" prefWidth="306.0" />
                   <Label layoutX="14.0" layoutY="16.0" prefHeight="28.0" prefWidth="189.0" text="Task name" textAlignment="CENTER" />
@@ -43,7 +43,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="437.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#updateTaskButtonClicked" prefHeight="70.0" prefWidth="149.0" text="Update Task" />
+                  <Button layoutX="437.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#editTaskButtonPressed" prefHeight="70.0" prefWidth="149.0" text="Update Task" />
                   <Label layoutX="68.0" layoutY="38.0" text="Task Name:" />
                   <TextArea fx:id="input_EditTaskDescription" layoutX="68.0" layoutY="132.0" prefHeight="200.0" prefWidth="200.0" />
                   <TextField fx:id="input_EditTaskName" layoutX="68.0" layoutY="55.0" prefHeight="25.0" prefWidth="200.0" />

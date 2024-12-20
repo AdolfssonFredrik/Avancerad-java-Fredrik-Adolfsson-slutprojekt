@@ -2,7 +2,7 @@ package com.example.ToDoApp.Model;
 
 public class ToDoTask {
 
-    private long id;
+    private int id;
 
     private String name;
     private String description;
@@ -14,7 +14,7 @@ public class ToDoTask {
     }
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 

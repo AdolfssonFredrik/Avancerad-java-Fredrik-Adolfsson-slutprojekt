@@ -36,6 +36,8 @@ public class ToDoTaskController implements ToDoTaskControllerInterface {
             toDoTask.setId(tasks.size() + 1);
             tasks.add(toDoTask);
 
+            System.out.println(objectNode.get("name").asText() + " " + objectNode.get("description").asText());
+
             return ResponseEntity.status(HttpStatus.CREATED).body(toDoTask);
         }
         else{
@@ -50,6 +52,7 @@ public class ToDoTaskController implements ToDoTaskControllerInterface {
             if(task.getId() == id){
                 task.setName(toDoTask.getName());
                 task.setDescription(toDoTask.getDescription());
+                System.out.println(toDoTask.getId() + " " + toDoTask.getName() + " " + toDoTask.getDescription());
                 return ResponseEntity.ok(task);
             }
         }
