@@ -31,12 +31,6 @@ public class HelloController implements Initializable {
     public ListView<Integer> listView_TaskId;
     List<ToDoTask> myTasks;
 
-    //Updates the listView when the update button is pressed
-    @FXML
-    public void updateButtonPressed(MouseEvent mouseEvent) throws MalformedURLException {
-        updateListView();
-    }
-
     //Updates the listview
     @FXML
     public void updateListView() throws MalformedURLException {
