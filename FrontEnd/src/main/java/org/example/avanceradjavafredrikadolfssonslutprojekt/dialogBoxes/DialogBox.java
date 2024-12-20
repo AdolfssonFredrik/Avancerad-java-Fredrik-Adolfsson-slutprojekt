@@ -7,7 +7,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class DialogBox {
-    public DialogBox(String message, String title) {
+    public void createDialogBox(String message, String title) {
         final Stage dialog = new Stage();
         dialog.setTitle(title);
         dialog.initModality(Modality.APPLICATION_MODAL);
@@ -16,6 +16,5 @@ public class DialogBox {
         Scene dialogScene = new Scene(dialogVbox, 300, 100);
         dialog.setScene(dialogScene);
         dialog.show();
-
     }
 }

@@ -1,7 +1,6 @@
-package org.example.avanceradjavafredrikadolfssonslutprojekt.buttonControllers;
+package org.example.avanceradjavafredrikadolfssonslutprojekt.controllers.buttons;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.avanceradjavafredrikadolfssonslutprojekt.dialogBoxes.DialogBox;
 import org.example.avanceradjavafredrikadolfssonslutprojekt.models.ToDoTask;
 
 import java.io.OutputStream;
@@ -16,7 +15,7 @@ public class AddTaskButtonPressed extends ButtonPressed {
 
         try{
             if(taskName.isEmpty() || taskDescription.isEmpty()){
-               new DialogBox("Please fill out entire form", "Error");
+                getDialogBox().createDialogBox("Please fill out entire form", "Error");
             }
             else{
                 ToDoTask toDoTask = new ToDoTask(taskName, taskDescription);
@@ -40,7 +39,7 @@ public class AddTaskButtonPressed extends ButtonPressed {
                 String response = readResponse(connection);
                 System.out.println(response);
 
-                new DialogBox("Task with name: \"" + toDoTask.getName() + "\" has been added.", "Success");
+                getDialogBox().createDialogBox("Task with name: \"" + toDoTask.getName() + "\" has been added.", "Success");
             }
             }
         catch(Exception e){

@@ -1,27 +1,23 @@
-package org.example.avanceradjavafredrikadolfssonslutprojekt.buttonControllers;
+package org.example.avanceradjavafredrikadolfssonslutprojekt.utility;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.avanceradjavafredrikadolfssonslutprojekt.dialogBoxes.DialogBox;
 import org.example.avanceradjavafredrikadolfssonslutprojekt.models.ToDoTask;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.List;
 
-abstract class ButtonPressed {
-    private URL url;
-    private List<ToDoTask> tasks;
+public class Utility {
+    private final DialogBox dialogBox;
 
-
-    public List<ToDoTask> buttonPressed(String urlString, List<ToDoTask> tasks){
-        return tasks;
+    public Utility(){
+        dialogBox = new DialogBox();
     }
-    public void buttonPressed(String urlString, List<ToDoTask> tasks, String taskName, String taskDescripton){}
-    public void buttonPressed(String urlString, List<ToDoTask> tasks, String taskName, String taskDescripton, String taskId){}
-    public void buttonPressed(String urlString, List<ToDoTask> tasks, String taskName){}
+
     //Reads the respone from the server
     //Code between 200 and 300 is good
     public String readResponse(HttpURLConnection connection) throws IOException {
@@ -44,13 +40,13 @@ abstract class ButtonPressed {
         return response.toString();
 
     }
-
     //Parses a given json String to a list of that object
-    public List<ToDoTask> parseTask(String json) throws IOException{
+    public List<ToDoTask> parseTask(String json) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(json, new TypeReference<List<ToDoTask>>() {});
     }
 
-
-
+    public DialogBox getDialogBox() {
+        return dialogBox;
+    }
 }

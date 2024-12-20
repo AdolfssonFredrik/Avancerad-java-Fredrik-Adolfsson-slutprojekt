@@ -1,21 +1,20 @@
-package org.example.avanceradjavafredrikadolfssonslutprojekt.buttonControllers;
+package org.example.avanceradjavafredrikadolfssonslutprojekt.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.example.avanceradjavafredrikadolfssonslutprojekt.dialogBoxes.DialogBox;
 import org.example.avanceradjavafredrikadolfssonslutprojekt.models.ToDoTask;
+import org.example.avanceradjavafredrikadolfssonslutprojekt.utility.Utility;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-public class UpdateButtonPressed extends ButtonPressed {
+public class UpdateTaskList extends Utility {
     private ObservableList<String> taskName;
     private ObservableList<String> taskDescription;
     private ObservableList<Integer> taskId;
 
-    @Override
-    public List<ToDoTask> buttonPressed(String urlString, List<ToDoTask> tasks) {
+    public List<ToDoTask> updateTaskList(String urlString, List<ToDoTask> tasks) {
         String response;
         try {
 
@@ -37,7 +36,7 @@ public class UpdateButtonPressed extends ButtonPressed {
                 taskId.add(task.getId());
             }
         } catch (Exception e) {
-           new DialogBox("Errror: " + e.getMessage(), "Error");
+           getDialogBox().createDialogBox("Errror: " + e.getMessage(), "Error");
         }
         return tasks;
     }

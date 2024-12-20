@@ -1,7 +1,5 @@
-package org.example.avanceradjavafredrikadolfssonslutprojekt.buttonControllers;
+package org.example.avanceradjavafredrikadolfssonslutprojekt.controllers.buttons;
 
-import org.example.avanceradjavafredrikadolfssonslutprojekt.HelloApplication;
-import org.example.avanceradjavafredrikadolfssonslutprojekt.dialogBoxes.DialogBox;
 import org.example.avanceradjavafredrikadolfssonslutprojekt.models.ToDoTask;
 
 import java.net.HttpURLConnection;
@@ -10,7 +8,7 @@ import java.util.List;
 
 public class RemoveButtonPressed extends ButtonPressed {
 
-    @Override
+      @Override
     public void buttonPressed(String urlString, List<ToDoTask> tasks, String taskName) {
         try {
             for (ToDoTask task : tasks) {
@@ -21,11 +19,11 @@ public class RemoveButtonPressed extends ButtonPressed {
                     connection.connect();
 
                     String response = connection.getResponseMessage();
-                    new DialogBox("Task with name: \"" + task.getName() + "\" has been removed.", "Success");
+                    getDialogBox().createDialogBox("Task with name: \"" + task.getName() + "\" has been removed.", "Success");
                 }
             }
         } catch (Exception e) {
-            new DialogBox("Error: " + e.getMessage(), "Error");
+            getDialogBox().createDialogBox("Error: " + e.getMessage(), "Error");
         }
     }
 }

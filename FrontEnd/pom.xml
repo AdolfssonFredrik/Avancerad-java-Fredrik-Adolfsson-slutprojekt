@@ -83,7 +83,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                org.example.avanceradjavafredrikadolfssonslutprojekt/org.example.avanceradjavafredrikadolfssonslutprojekt.HelloApplication
+                                org.example.avanceradjavafredrikadolfssonslutprojekt/org.example.avanceradjavafredrikadolfssonslutprojekt.Application
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
