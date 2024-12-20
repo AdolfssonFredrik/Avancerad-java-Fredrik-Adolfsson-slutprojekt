@@ -18,7 +18,7 @@ public class AddTaskButtonPressed extends ButtonPressed {
                 getDialogBox().createDialogBox("Please fill out entire form", "Error");
             }
             else{
-                ToDoTask toDoTask = new ToDoTask(taskName, taskDescription);
+                ToDoTask toDoTask = newToDoTask(taskName, taskDescription);
 
                 toDoTask.setId(tasks.size() + 1);
 

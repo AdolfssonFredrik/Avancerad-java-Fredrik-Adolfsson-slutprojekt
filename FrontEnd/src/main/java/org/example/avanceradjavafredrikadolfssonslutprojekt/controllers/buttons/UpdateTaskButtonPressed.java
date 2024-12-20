@@ -21,7 +21,7 @@ public class UpdateTaskButtonPressed extends ButtonPressed {
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setDoOutput(true);
 
-            ToDoTask toDoTask = new ToDoTask(taskName, taskDescripton);
+            ToDoTask toDoTask = newToDoTask(taskName, taskDescripton);
 
             toDoTask.setId(Integer.parseInt(taskId));
 
