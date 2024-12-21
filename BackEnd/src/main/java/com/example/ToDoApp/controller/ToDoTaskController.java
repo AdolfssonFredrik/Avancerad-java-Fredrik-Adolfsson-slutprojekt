@@ -17,6 +17,7 @@ public class ToDoTaskController implements ToDoTaskControllerInterface {
 
     public ToDoTaskController(){
         tasks.add(new ToDoTask("Clean", "Clean"));
+        tasks.getFirst().setId(tasks.size() + 1);
     }
 
     @Override
