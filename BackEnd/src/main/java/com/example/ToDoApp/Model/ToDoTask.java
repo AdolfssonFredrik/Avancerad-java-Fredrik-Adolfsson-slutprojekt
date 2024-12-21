@@ -3,7 +3,6 @@ package com.example.ToDoApp.Model;
 public class ToDoTask {
 
     private int id;
-
     private String name;
     private String description;
 

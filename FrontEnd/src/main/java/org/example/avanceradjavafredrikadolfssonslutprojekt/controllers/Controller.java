@@ -53,8 +53,6 @@ public class Controller implements Initializable {
     //Reads the existing data from the server on boot
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        classLoader.setDefaultAssertionStatus(true);
         try {
             this.myTasks = new ArrayList<>();
             updateListView();

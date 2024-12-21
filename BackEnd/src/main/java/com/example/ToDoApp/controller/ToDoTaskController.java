@@ -14,12 +14,6 @@ import java.util.List;
 public class ToDoTaskController implements ToDoTaskControllerInterface {
     private List<ToDoTask> tasks = new ArrayList<>();
 
-
-    public ToDoTaskController(){
-        tasks.add(new ToDoTask("Clean", "Clean"));
-        tasks.getFirst().setId(tasks.size() + 1);
-    }
-
     @Override
     @GetMapping
     public List<ToDoTask> getAllTasks() {
