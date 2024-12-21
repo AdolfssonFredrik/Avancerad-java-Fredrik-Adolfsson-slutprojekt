@@ -43,7 +43,8 @@ public class Utility {
     //Parses a given json String to a list of that object
     public List<ToDoTask> parseTask(String json) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(json, new TypeReference<List<ToDoTask>>() {});
+        return mapper.readValue(json, new TypeReference<>() {
+        });
     }
 
     public DialogBox getDialogBox() {

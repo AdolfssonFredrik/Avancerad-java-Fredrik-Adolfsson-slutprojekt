@@ -11,6 +11,7 @@ module org.example.avanceradjavafredrikadolfssonslutprojekt {
     opens org.example.avanceradjavafredrikadolfssonslutprojekt to javafx.fxml;
     exports org.example.avanceradjavafredrikadolfssonslutprojekt;
     exports org.example.avanceradjavafredrikadolfssonslutprojekt.models to com.fasterxml.jackson.databind;
+    opens org.example.avanceradjavafredrikadolfssonslutprojekt.models to com.fasterxml.jackson.databind;
     exports org.example.avanceradjavafredrikadolfssonslutprojekt.controllers;
     opens org.example.avanceradjavafredrikadolfssonslutprojekt.controllers to javafx.fxml;
     exports org.example.avanceradjavafredrikadolfssonslutprojekt.controllers.buttons;

@@ -1,5 +1,6 @@
 package org.example.avanceradjavafredrikadolfssonslutprojekt.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -20,12 +21,19 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     private final String urlString = "http://localhost:8080/api/todo";
 
+    @FXML
     public ListView<String> listView_TaskName;
+    @FXML
     public ListView<String> listView_TaskDescription;
+    @FXML
     public TextArea input_TaskDescription;
+    @FXML
     public TextField input_TaskName;
+    @FXML
     public TextArea input_EditTaskDescription;
+    @FXML
     public TextField input_EditTaskName;
+    @FXML
     public TextField input_EditTaskId;
     public ListView<Integer> listView_TaskId;
     private List<ToDoTask> myTasks;
@@ -35,13 +43,9 @@ public class Controller implements Initializable {
     public void updateListView() throws MalformedURLException {
         UpdateTaskList updateButtonPressed = new UpdateTaskList();
         this.myTasks = updateButtonPressed.updateTaskList(urlString, this.myTasks);
-        listView_TaskName.getItems().clear();
+
         listView_TaskName.setItems(updateButtonPressed.getTaskName());
-
-        listView_TaskDescription.getItems().clear();
         listView_TaskDescription.setItems(updateButtonPressed.getTaskDescription());
-
-        listView_TaskId.getItems().clear();
         listView_TaskId.setItems(updateButtonPressed.getTaskId());
 
     }
@@ -49,6 +53,8 @@ public class Controller implements Initializable {
     //Reads the existing data from the server on boot
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ClassLoader classLoader = getClass().getClassLoader();
+        classLoader.setDefaultAssertionStatus(true);
         try {
             this.myTasks = new ArrayList<>();
             updateListView();
